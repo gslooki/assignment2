@@ -16,6 +16,6 @@ def users(request):
 def username(request, username):
     return HttpResponse(username)
 def usernamefollowing(request, username):
-    return HttpResponse(Userlink.objects.get(username))
+    return HttpResponse(Userlink.objects.get(Userlink.objects.from_user.get(username)))
 def usernamefollowers(request,username):
-    return HttpResponse(Userlink.objects.get(username))
+    return HttpResponse(Userlink.objects.get(Userlink.objects.to_user.get(username)))
